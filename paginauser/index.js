@@ -64,6 +64,7 @@ function partedireita(a) {
     type.className = 'type';
 
     divdireita1.appendChild(find);
+    divdireita1.appendChild(type);
     a.appendChild(divdireita1);
 }
 
