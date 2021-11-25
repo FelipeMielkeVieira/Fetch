@@ -59,6 +59,10 @@ function partedireita(a) {
     find.placeholder = 'Find a repository...'
     find.className = 'find';
 
+    let type = document.createElement('button');
+    type.placeholder = 'Type';
+    type.className = 'type';
+
     divdireita1.appendChild(find);
     a.appendChild(divdireita1);
 }
