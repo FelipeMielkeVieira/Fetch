@@ -35,7 +35,19 @@ function getUserReposGithub(userName) {
         .then(function (resultado) {
             resultado.json().then(function (data) {
                 console.log('Repositories Data:', data);
-                listarep = data;
+
+                data.forEach(a => {
+        
+                    let linha = document.createElement('div');
+                    linha.className = 'linharep';
+            
+                    let nomer = document.createElement('p');
+                    nomer.innerText = a.name;
+                    nomer.className = 'nomer';
+
+                    linha.appendChild(nomer);
+                    direita.appendChild(linha);
+                });
             });
         }).catch(function (erro) {
             console.log('erro:', erro);
@@ -118,18 +130,6 @@ function parteesquerda() {
 
 function repositorios() {
 
-    listarep.forEach(a => {
-        
-        let linha = document.createElement('div');
-        linha.className = 'linharep';
-
-        let nomer = a.name;
-        nomer.className = 'nomer';
-
-        linha.appendChild(nomer);
-
-        direita.appendChild(linha);
-    });
 }
 
 criarpagina();
