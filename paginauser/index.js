@@ -123,6 +123,11 @@ function repositorios() {
         let linha = document.createElement('div');
         linha.className = 'linharep';
 
+        let nomer = a.name;
+        nomer.className = 'nomer';
+
+        linha.appendChild(nomer);
+
         direita.appendChild(linha);
     });
 }
