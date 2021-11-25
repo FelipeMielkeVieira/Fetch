@@ -1,5 +1,10 @@
 let tela = document.querySelector('body');
 
+let botao = document.createElement("button");
+botao.className = 'botao';
+botao.innerText = 'Cadastre-se'
+tela.appendChild(botao);
+
 let lista = [
     { name: 'Bruno Henrique Verbinnen de Carvalho', username: 'brunohvc'},
     { name: 'Vytor Augusto Rosa', username: 'K43RU'},

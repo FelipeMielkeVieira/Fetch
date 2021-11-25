@@ -126,9 +126,53 @@ button:hover {
     border-collapse: collapse;
 }
 
+.divlinha1 {
+    display: flex;
+    align-items: center;
+}
+
 .nomer {
     color: rgb(71, 147, 233);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
     font-weight: bold;
+}
+
+.private {
+    padding: 5px;
+    padding-left: 7px;
+    padding-right: 7px;
+    border: 1px solid rgb(131, 127, 127);
+    height: 13px;
+    color: gray;
+    margin-left: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 20px;
+}
+
+.nomea {
+    color: rgb(71, 147, 233);
+    text-decoration: none;
+}
+
+.nomea:hover {
+    text-decoration: underline;
+}
+
+.divlinha3 {
+    margin-top: 10px;
+}
+
+.lang {
+    color: gray;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.descricao {
+    color: gray;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
 }
