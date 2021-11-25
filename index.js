@@ -55,7 +55,9 @@ function montarlinha(tabela) {
         let botaotabela = document.createElement('button');
         let redirecionamento = document.createElement('a');
 
-        redirecionamento.href = './paginauser/index.html';
+        let usern = e.username;
+
+        redirecionamento.href = './paginauser/index.html?' + usern;
 
         colunabotao.className = 'colunabotao';
         botaotabela.className = 'botaotabela';
