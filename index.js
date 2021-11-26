@@ -59,8 +59,6 @@ let botaofiltro;
 criarfiltro();
 botaofiltro.onclick = filtrar;
 
-finput.oninput = filtrar;
-
 function criarfiltro() {
     
     divfiltro = document.createElement('div');
@@ -83,8 +81,12 @@ let filtrado;
 
 function filtrar() {
 
-    function buscar () {
-        if (name == finput.value && value != '') {
+    function buscar (value) {
+
+        let nomes = value.name;
+        let us = value.username;
+
+        if ((nomes == finput.value && nomes != '') || (us == finput.value && us != '')) {
             return value;
         } 
     }
