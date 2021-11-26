@@ -50,6 +50,50 @@ let usernm = document.createElement('input');
 usernm.placeholder = 'Username';
 usernm.className = 'nome';
 
+criartabela();
+
+
+let divfiltro;
+let finput;
+let botaofiltro;
+criarfiltro();
+botaofiltro.onclick = filtrar;
+
+finput.oninput = filtrar;
+
+function criarfiltro() {
+    
+    divfiltro = document.createElement('div');
+    divfiltro.className = 'divfiltro';
+
+    finput = document.createElement('input');
+    finput.className = 'finput';
+    finput.placeholder = 'Filtrar';
+    divfiltro.appendChild(finput);
+
+    botaofiltro = document.createElement('button');
+    botaofiltro.className = 'botaofiltro';
+    botaofiltro.innerText = 'Buscar';
+    divfiltro.appendChild(botaofiltro);
+
+    tela.appendChild(divfiltro);
+}
+
+let filtrado;
+
+function filtrar() {
+
+    function buscar () {
+        if (name == finput.value && value != '') {
+            return value;
+        } 
+    }
+
+    lista = lista.filter(buscar);
+
+    criartabela();
+}
+
 function modal() {
 
     caixa = document.createElement("div");
@@ -81,39 +125,6 @@ function modal() {
     inferior.appendChild(botao2);
     cont = 1;
 }
-
-function voltar() {
-    tela.removeChild(caixa);
-    tela.style.opacity = '1';
-    nome.value = '';
-    sobrenome.value = '';
-    data.value = '';
-}
-
-function cadastrar() {
-
-    let nome2 = nome.value;
-    let user = usernm.value;
-
-    if(nome2 != '' && user != '') {
-
-        let variavel = {
-            name: nome2,
-            username: user
-        }
-    
-        lista.push(variavel);
-
-        alert(2);
-
-    } else {
-
-        alert(1);
-
-    }
-}
-
-criartabela();
 
 function criartabela() {
 
@@ -211,4 +222,35 @@ function alert(a) {
 
 function tirarmensagem() {
     tela.removeChild(mensagem);
+}
+
+function voltar() {
+    tela.removeChild(caixa);
+    tela.style.opacity = '1';
+    nome.value = '';
+    sobrenome.value = '';
+    data.value = '';
+}
+
+function cadastrar() {
+
+    let nome2 = nome.value;
+    let user = usernm.value;
+
+    if(nome2 != '' && user != '') {
+
+        let variavel = {
+            name: nome2,
+            username: user
+        }
+    
+        lista.push(variavel);
+
+        alert(2);
+
+    } else {
+
+        alert(1);
+
+    }
 }

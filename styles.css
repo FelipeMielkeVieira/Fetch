@@ -150,3 +150,31 @@ a {
     padding: 10px;
     border-radius: 14px;
 }
+
+.divfiltro {
+    position: absolute;
+    top: 25px;
+    display: flex;
+}
+
+.finput {
+    width: 40vw;
+    height: 26px;
+    border: 1px solid black;
+    border-radius: 6px;
+    background-color: transparent;
+    padding-left: 10px;
+}
+
+.botaofiltro {
+    height: 26px;
+    width: 4vw;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 4px;
+    margin-left: 14px;
+}
+
+.botaofiltro:hover {
+    cursor: pointer;
+}
