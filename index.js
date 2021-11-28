@@ -50,14 +50,13 @@ let usernm = document.createElement('input');
 usernm.placeholder = 'Username';
 usernm.className = 'nome';
 
-criartabela();
-
-
 let divfiltro;
 let finput;
 let botaofiltro;
 criarfiltro();
 botaofiltro.onclick = filtrar;
+
+criartabela(lista);
 
 function criarfiltro() {
     
@@ -81,19 +80,13 @@ let filtrado;
 
 function filtrar() {
 
-    function buscar (value) {
+    let respostafiltro = document.querySelector('.finput').value; 
 
-        let nomes = value.name;
-        let us = value.username;
+    const listaFiltrada = lista.filter(function (element) {
+        return element.name.toLowerCase().indexOf(respostafiltro.toLowerCase()) > -1 || element.username.toLowerCase().indexOf(respostafiltro.toLowerCase()) > -1;
+    });
 
-        if ((nomes == finput.value && nomes != '') || (us == finput.value && us != '')) {
-            return value;
-        } 
-    }
-
-    lista = lista.filter(buscar);
-
-    criartabela();
+    criartabela(listaFiltrada);
 }
 
 function modal() {
@@ -128,7 +121,7 @@ function modal() {
     cont = 1;
 }
 
-function criartabela() {
+function criartabela(a) {
 
     let tabelaAtual = document.querySelector('table');
 
@@ -150,14 +143,14 @@ function criartabela() {
     linha.appendChild(headeruser);
     tabela.appendChild(linha);
 
-    montarlinha(tabela);
+    montarlinha(tabela, a);
 
     tela.appendChild(tabela);
 }
 
-function montarlinha(tabela) {
+function montarlinha(tabela, b) {
 
-    lista.forEach(function (e) {
+    b.forEach(function (e) {
         let linha = document.createElement('tr');
 
         let colunanome = document.createElement('td');
@@ -214,7 +207,7 @@ function alert(a) {
         tela.removeChild(caixa);
         nome.value = '';
         usernm.value = '';
-        criartabela();
+        criartabela(lista);
 
     }
 

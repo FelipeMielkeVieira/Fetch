@@ -9,7 +9,7 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 
 table {
@@ -152,9 +152,9 @@ a {
 }
 
 .divfiltro {
-    position: absolute;
-    top: 25px;
     display: flex;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .finput {
