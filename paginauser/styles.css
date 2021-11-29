@@ -163,6 +163,7 @@ button:hover {
 
 .divlinha3 {
     margin-top: 10px;
+    display: flex;
 }
 
 .lang {
@@ -172,6 +173,12 @@ button:hover {
 }
 
 .descricao {
+    color: gray;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.updated {
     color: gray;
     font-size: 13px;
     font-family: Arial, Helvetica, sans-serif;

@@ -1,5 +1,11 @@
 let tela = document.querySelector('body');
 
+let head = document.querySelector('head');
+
+let titulo = document.createElement('title');
+titulo.innerText = 'Tabela de Pessoas';
+head.appendChild(titulo);
+
 let botao = document.createElement("button");
 botao.className = 'botao';
 botao.innerText = 'Cadastre-se';
@@ -53,10 +59,17 @@ usernm.className = 'nome';
 let divfiltro;
 let finput;
 let botaofiltro;
+let limpar;
 criarfiltro();
 botaofiltro.onclick = filtrar;
+limpar.onclick = flimpar;
 
 criartabela(lista);
+
+function flimpar() {
+    finput.value = '';
+    filtrar();
+}
 
 function criarfiltro() {
     
@@ -71,7 +84,13 @@ function criarfiltro() {
     botaofiltro = document.createElement('button');
     botaofiltro.className = 'botaofiltro';
     botaofiltro.innerText = 'Buscar';
+
+    limpar = document.createElement('button');
+    limpar.className = 'limpar';
+    limpar.innerText = 'Limpar';
+
     divfiltro.appendChild(botaofiltro);
+    divfiltro.appendChild(limpar);
 
     tela.appendChild(divfiltro);
 }
@@ -162,6 +181,7 @@ function montarlinha(tabela, b) {
         let usern = e.username;
 
         redirecionamento.href = './paginauser/index.html?' + usern;
+        redirecionamento.target="_blank"
 
         colunabotao.className = 'colunabotao';
         botaotabela.className = 'botaotabela';

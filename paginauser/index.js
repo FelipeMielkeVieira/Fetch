@@ -1,5 +1,7 @@
 let tela = document.querySelector('body');
 
+let head = document.querySelector('head');
+
 let username1 = document.location.search;
 let username2 = username1.replace('?', '');
 
@@ -7,7 +9,12 @@ let imagem = document.createElement('img');
 let nomeuser = document.createElement('p');
 let usuario = document.createElement('p');
 
+let titulo = document.createElement('title');
+titulo.innerText = username2;
+head.appendChild(titulo);
+
 let private;
+let updated;
 
 let listarep;
 
@@ -68,6 +75,44 @@ function getUserReposGithub(userName) {
                     lang.innerText = a.language;
                     lang.className = 'lang';
 
+                    if(lang.innerText != '') {
+                        lang.style.marginRight = '30px';
+                    }
+
+                    let data1 = a.updated_at;
+                    let data2 = new Date(data1);
+
+                    let dia = data2.getDay();
+                    let ano = data2.getFullYear();
+                    let mes = data2.getMonth();
+
+                    let horas = data2.getHours();
+
+                    let horasupd = (dia * 24) + (mes * 30.5 * 24) + (ano * 365 * 24) + horas;
+
+
+                    let dataa = new Date();
+                    let diaa = dataa.getDay();
+                    let anoa = dataa.getFullYear();
+                    let mesa = dataa.getMonth();
+                    let horasa = dataa.getHours();
+
+                    let horasatuais = (diaa * 24) + (mesa * 30.5 * 24) + (anoa * 365 * 24) + horasa;
+
+                    let ultimoup = Math.sqrt((horasatuais - horasupd) * (horasatuais - horasupd));
+                    let horaoudia;
+
+                    if(ultimoup > 24) {
+                        ultimoup = ultimoup % 24;
+                        horaoudia = 'days';
+                    } else {
+                        horaoudia = 'hours';
+                    }
+
+                    updated = document.createElement('span');
+                    updated.className = 'updated';
+                    updated.innerText = 'Updated ' + ultimoup + ' ' + horaoudia + ' ago';
+
                     if (private == false) {
                         pripub.innerText = 'Public';
                     } else {
@@ -90,6 +135,7 @@ function getUserReposGithub(userName) {
                     divlinha1.appendChild(pripub);
                     divlinha2.appendChild(descricao);
                     divlinha3.appendChild(lang);
+                    divlinha3.appendChild(updated);
                     direita.appendChild(linha);
                 });
             });
