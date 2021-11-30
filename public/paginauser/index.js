@@ -142,9 +142,12 @@ function getUserReposGithub(userName) {
                         } else {
                             updatetext = "on " + dia + " "+ mestext + " " + anotext;
                         }
-                    } else {
+                    } else if(ultimoup > 0) {
                         ultimoup = parseInt(ultimoup);
                         updatetext = ultimoup + " hours ago";
+                    } else {
+                        let minutos = data2.getMinutes();
+                        updatetext = minutos + " minutes ago";
                     }
 
                     updated = document.createElement('span');
