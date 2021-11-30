@@ -95,8 +95,6 @@ function criarfiltro() {
     tela.appendChild(divfiltro);
 }
 
-let filtrado;
-
 function filtrar() {
 
     let respostafiltro = document.querySelector('.finput').value; 
