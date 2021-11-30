@@ -90,13 +90,6 @@ function getUserReposGithub(userName) {
 
                     let horasupd = ((dia - 1) * 24) + ((mes - 1) * 30.4375 * 24) + ((ano - 1) * 365 * 24) + horas;
 
-                    console.log("Data: " + data1 + " | " + data2);
-                    console.log(dia);
-                    console.log(mes);
-                    console.log(ano);
-                    console.log(horas);
-
-
                     let dataa = new Date();
                     let diaa = dataa.getDate();
                     let anoa = dataa.getFullYear();
@@ -105,31 +98,58 @@ function getUserReposGithub(userName) {
 
                     let horasatuais = ((diaa - 1) * 24) + ((mesa - 1) * 30.4375 * 24) + ((anoa - 1) * 365 * 24) + horasa;
 
-                    console.log("Atual: " + dataa);
-                    console.log(diaa);
-                    console.log(mesa);
-                    console.log(anoa);
-                    console.log(horasa);
-
                     let ultimoup = Math.sqrt((horasatuais - horasupd) * (horasatuais - horasupd));
-                    let horaoudia;
+                    let mestext;
+                    let anotext;
+
+                    if(mes == 1) {
+                        mestext = 'Jan';
+                    } else if(mes == 2) {
+                        mestext = 'Feb';
+                    } else if(mes == 3) {
+                        mestext = 'Mar';
+                    } else if(mes == 4) {
+                        mestext = 'Apr';
+                    } else if(mes == 5) {
+                        mestext = 'May';
+                    } else if(mes == 6) {
+                        mestext = 'Jun';
+                    } else if(mes == 7) {
+                        mestext = 'Jul';
+                    } else if(mes == 8) {
+                        mestext = 'Aug';
+                    } else if(mes == 9) {
+                        mestext = 'Sep';
+                    } else if(mes == 10) {
+                        mestext = 'Oct';
+                    } else if(mes = 11) {
+                        mestext = 'Nov';
+                    } else {
+                        mestext = 'Dec';
+                    }
+
+                    if(ano != anoa) {
+                        anotext = ano;
+                    } else {
+                        anotext = '';
+                    }
 
                     if(ultimoup > 24) {
                         ultimoup += 3;
                         ultimoup = parseInt(ultimoup / 24);
-                        horaoudia = 'days';
+                        if(ultimoup <= 30) {
+                            updatetext = ultimoup + " days ago";
+                        } else {
+                            updatetext = "on " + dia + " "+ mestext + " " + anotext;
+                        }
                     } else {
                         ultimoup = parseInt(ultimoup);
-                        horaoudia = 'hours';
+                        updatetext = ultimoup + " hours ago";
                     }
-
-                    console.log(horasupd);
-                    console.log(horasatuais);
-                    console.log(ultimoup);
 
                     updated = document.createElement('span');
                     updated.className = 'updated';
-                    updated.innerText = 'Updated ' + ultimoup + ' ' + horaoudia + ' ago';
+                    updated.innerText = 'Updated ' + updatetext;
 
                     if (private == false) {
                         pripub.innerText = 'Public';
