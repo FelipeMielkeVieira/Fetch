@@ -79,35 +79,53 @@ function getUserReposGithub(userName) {
                         lang.style.marginRight = '30px';
                     }
 
-                    let data1 = a.updated_at;
+                    let data1 = a.pushed_at;
                     let data2 = new Date(data1);
 
-                    let dia = data2.getDay();
+                    let dia = data2.getDate();
                     let ano = data2.getFullYear();
-                    let mes = data2.getMonth();
+                    let mes = (data2.getMonth() + 1);
 
                     let horas = data2.getHours();
 
-                    let horasupd = (dia * 24) + (mes * 30.5 * 24) + (ano * 365 * 24) + horas;
+                    let horasupd = ((dia - 1) * 24) + ((mes - 1) * 30.4375 * 24) + ((ano - 1) * 365 * 24) + horas;
+
+                    console.log("Data: " + data1 + " | " + data2);
+                    console.log(dia);
+                    console.log(mes);
+                    console.log(ano);
+                    console.log(horas);
 
 
                     let dataa = new Date();
-                    let diaa = dataa.getDay();
+                    let diaa = dataa.getDate();
                     let anoa = dataa.getFullYear();
-                    let mesa = dataa.getMonth();
+                    let mesa = (dataa.getMonth() + 1);
                     let horasa = dataa.getHours();
 
-                    let horasatuais = (diaa * 24) + (mesa * 30.5 * 24) + (anoa * 365 * 24) + horasa;
+                    let horasatuais = ((diaa - 1) * 24) + ((mesa - 1) * 30.4375 * 24) + ((anoa - 1) * 365 * 24) + horasa;
+
+                    console.log("Atual: " + dataa);
+                    console.log(diaa);
+                    console.log(mesa);
+                    console.log(anoa);
+                    console.log(horasa);
 
                     let ultimoup = Math.sqrt((horasatuais - horasupd) * (horasatuais - horasupd));
                     let horaoudia;
 
                     if(ultimoup > 24) {
-                        ultimoup = ultimoup % 24;
+                        ultimoup += 3;
+                        ultimoup = parseInt(ultimoup / 24);
                         horaoudia = 'days';
                     } else {
+                        ultimoup = parseInt(ultimoup);
                         horaoudia = 'hours';
                     }
+
+                    console.log(horasupd);
+                    console.log(horasatuais);
+                    console.log(ultimoup);
 
                     updated = document.createElement('span');
                     updated.className = 'updated';
