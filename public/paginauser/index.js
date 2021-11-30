@@ -97,6 +97,11 @@ function getUserReposGithub(userName) {
                     let horasa = dataa.getHours();
 
                     let horasatuais = ((diaa - 1) * 24) + ((mesa - 1) * 30.4375 * 24) + ((anoa - 1) * 365 * 24) + horasa;
+                    
+                    let minutos1 = ((dia - 1) * 24 * 60) + ((mes - 1) * 30.4375 * 24 * 60) + ((ano - 1) * 365 * 24 * 60) + (horas * 60);
+                    let minutosatuais = ((dia - 1) * 24 * 60) + ((mes - 1) * 30.4375 * 24 * 60) + ((ano - 1) * 365 * 24 * 60) + (horas * 60);
+
+                    let minutos = Math.sqrt((minutosatuais - minutos1) * (minutosatuais - minutos1));
 
                     let ultimoup = Math.sqrt((horasatuais - horasupd) * (horasatuais - horasupd));
                     let mestext;
@@ -134,6 +139,8 @@ function getUserReposGithub(userName) {
                         anotext = '';
                     }
 
+                    ultimoup = parseInt(ultimoup);
+
                     if(ultimoup > 24) {
                         ultimoup += 3;
                         ultimoup = parseInt(ultimoup / 24);
@@ -143,10 +150,8 @@ function getUserReposGithub(userName) {
                             updatetext = "on " + dia + " "+ mestext + " " + anotext;
                         }
                     } else if(ultimoup > 0) {
-                        ultimoup = parseInt(ultimoup);
                         updatetext = ultimoup + " hours ago";
                     } else {
-                        let minutos = data2.getMinutes();
                         updatetext = minutos + " minutes ago";
                     }
 
